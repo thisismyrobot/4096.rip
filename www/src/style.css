@@ -1,0 +1,152 @@
+:root {
+    --cyber-bg: #05050a;
+    --cyber-panel: rgba(8, 10, 20, 0.88);
+    --cyber-panel-strong: rgba(11, 14, 28, 0.96);
+    --cyber-cyan: #00f5ff;
+    --cyber-magenta: #ff2dfc;
+    --cyber-lime: #b7ff3c;
+    --cyber-text: #eff7ff;
+    --cyber-muted: #93a6bf;
+}
+
+html,
+body {
+    min-height: 100%;
+    background: var(--cyber-bg);
+}
+
+body {
+    position: relative;
+    isolation: isolate;
+    color: var(--cyber-text);
+    background:
+        radial-gradient(circle at top left, rgba(255, 45, 252, 0.18), transparent 28%),
+        radial-gradient(circle at top right, rgba(0, 245, 255, 0.16), transparent 30%),
+        radial-gradient(circle at bottom, rgba(183, 255, 60, 0.10), transparent 36%),
+        linear-gradient(180deg, #030308 0%, #070812 42%, #020205 100%);
+}
+
+body::after {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: url("art/wireframe-ts.png") center center / cover no-repeat;
+    opacity: 0.3;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+    background-size: 3rem 3rem;
+    opacity: 0.22;
+    mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.85), transparent 95%);
+}
+
+main > div.bordered {
+    padding: 2rem;
+    border: 1px solid rgba(0, 245, 255, 0.22);
+    border-radius: 1.5rem;
+    background: linear-gradient(180deg, rgba(11, 14, 28, 0.96), rgba(6, 8, 18, 0.86));
+    box-shadow:
+        0 0 0 1px rgba(255, 45, 252, 0.08),
+        0 0 28px rgba(0, 245, 255, 0.12),
+        0 0 48px rgba(255, 45, 252, 0.08),
+        0 20px 60px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(12px);
+}
+
+h1,
+h2 {
+    color: var(--cyber-text);
+    text-shadow:
+        0 0 8px rgba(0, 245, 255, 0.30),
+        0 0 18px rgba(255, 45, 252, 0.18);
+}
+
+.text-secondary {
+    color: var(--cyber-muted) !important;
+}
+
+.input-group {
+    border-radius: 999px;
+    overflow: visible;
+    box-shadow:
+        0 0 0 1px rgba(0, 245, 255, 0.25),
+        0 0 26px rgba(0, 245, 255, 0.12),
+        0 0 18px rgba(255, 45, 252, 0.08);
+}
+
+.form-control {
+    border: 1px solid rgba(0, 245, 255, 0.18) !important;
+    border-radius: 999px 0 0 999px !important;
+    color: var(--cyber-text) !important;
+    background: rgba(5, 7, 14, 0.96) !important;
+}
+
+.input-group > .btn {
+    border-radius: 0 999px 999px 0 !important;
+}
+
+.form-control::placeholder {
+    color: rgba(147, 166, 191, 0.75);
+}
+
+.form-control:focus {
+    border-color: rgba(183, 255, 60, 0.9) !important;
+    box-shadow: 0 0 0 0.25rem rgba(183, 255, 60, 0.18) !important;
+}
+
+.btn-primary {
+    border: 0;
+    color: #06070a;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--cyber-cyan), var(--cyber-magenta));
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.22), 0 0 16px rgba(255, 45, 252, 0.16);
+}
+
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+    color: #06070a;
+    background: linear-gradient(135deg, #4cf7ff, #ff5dfd);
+    box-shadow: 0 0 24px rgba(0, 245, 255, 0.32), 0 0 18px rgba(255, 45, 252, 0.22);
+}
+
+#stl-files {
+    margin-top: 1.5rem;
+    padding: 1.25rem;
+    border-radius: 1.25rem;
+    border: 1px solid rgba(255, 45, 252, 0.16);
+    background: var(--cyber-panel);
+    box-shadow: inset 0 0 0 1px rgba(0, 245, 255, 0.06);
+}
+
+#stl-files.hidden {
+    display: none;
+}
+
+.stl-viewer {
+    border-radius: 1rem;
+    border: 1px solid rgba(0, 245, 255, 0.22);
+    background:
+        radial-gradient(circle at top, rgba(0, 245, 255, 0.12), transparent 42%),
+        radial-gradient(circle at bottom right, rgba(255, 45, 252, 0.12), transparent 40%),
+        linear-gradient(180deg, rgba(13, 16, 33, 0.98), rgba(4, 5, 12, 0.98));
+    box-shadow:
+        inset 0 0 0 1px rgba(183, 255, 60, 0.06),
+        0 0 18px rgba(0, 245, 255, 0.08),
+        0 0 24px rgba(255, 45, 252, 0.06);
+}
+
+.stl-viewer canvas {
+    width: 100%;
+    height: auto !important;
+    aspect-ratio: 1;
+}
