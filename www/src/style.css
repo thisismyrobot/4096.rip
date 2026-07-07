@@ -150,3 +150,84 @@ h2 {
     height: auto !important;
     aspect-ratio: 1;
 }
+
+.help-button {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    z-index: 1050;
+    width: 2.5rem;
+    height: 2.5rem;
+    border: 1px solid rgba(0, 245, 255, 0.4);
+    border-radius: 999px;
+    color: var(--cyber-text);
+    font-weight: 700;
+    font-size: 1.25rem;
+    line-height: 1;
+    background: linear-gradient(140deg, rgba(0, 245, 255, 0.2), rgba(255, 45, 252, 0.28));
+    box-shadow: 0 0 20px rgba(0, 245, 255, 0.2), 0 0 18px rgba(255, 45, 252, 0.12);
+}
+
+.help-button:hover,
+.help-button:focus {
+    border-color: rgba(183, 255, 60, 0.95);
+    box-shadow: 0 0 24px rgba(183, 255, 60, 0.24), 0 0 20px rgba(0, 245, 255, 0.2);
+}
+
+.help-modal.hidden {
+    display: none;
+}
+
+.help-modal {
+    position: fixed;
+    inset: 0;
+    z-index: 1060;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+.help-modal-backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(2, 3, 10, 0.78);
+    backdrop-filter: blur(4px);
+}
+
+.help-modal-panel {
+    position: relative;
+    width: min(34rem, 100%);
+    padding: 1.25rem 1.25rem 1.1rem;
+    border: 1px solid rgba(0, 245, 255, 0.3);
+    border-radius: 1rem;
+    color: var(--cyber-text);
+    background: linear-gradient(180deg, rgba(11, 14, 28, 0.97), rgba(6, 8, 18, 0.95));
+    box-shadow: 0 0 0 1px rgba(255, 45, 252, 0.1), 0 20px 60px rgba(0, 0, 0, 0.6);
+}
+
+.help-close {
+    position: absolute;
+    top: 0.35rem;
+    right: 0.55rem;
+    border: 0;
+    padding: 0;
+    color: var(--cyber-muted);
+    font-size: 1.8rem;
+    line-height: 1;
+    background: transparent;
+}
+
+.help-close:hover,
+.help-close:focus {
+    color: var(--cyber-cyan);
+}
+
+.help-list {
+    padding-left: 1rem;
+    color: var(--cyber-text);
+}
+
+.help-list li + li {
+    margin-top: 0.35rem;
+}

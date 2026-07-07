@@ -41,6 +41,39 @@
             </div>
 		</div>
 	</main>
+
+    <button id="help-button" class="help-button" type="button" aria-label="Open help dialog" aria-haspopup="dialog" aria-controls="help-modal">?</button>
+
+    <div id="help-modal" class="help-modal hidden" role="dialog" aria-modal="true" aria-labelledby="help-modal-title" aria-describedby="help-modal-description">
+        <div class="help-modal-backdrop" data-help-close="true"></div>
+        <div class="help-modal-panel" role="document">
+            <button id="help-modal-close" class="help-close" type="button" aria-label="Close help dialog">&times;</button>
+            <h2>What is this?</h2>
+            <p>
+                This is a generator for 3D-printable keys for BiLock's First Generation (FG) Locks. It's an experiment so YMMV.
+            </p>
+            <h3>Step-by-Step Instructions</h3>
+            <p>
+                Enter two six-digit profiles separated by a space. Each digit
+                must be between 1 and 4. The first digit of a profile is the tip
+                of the key.
+            </p>
+            <ul>
+                <li>Example input: <strong>121212 343434</strong></li>
+                <li>Press <strong>Generate</strong> to preview downloadable STL files.</li>
+            </ul>
+            <h3>Why 4096.rip?</h3>
+            <p>
+                There are 4<sup>6</sup> = 4096 possible profiles for each side
+                of a BiLock FG key, which is a lot less mathematically spooky
+                than the 16 million possible combinations you get when you
+                combine both sides, and I'd rather generate 4096 STLs than 16
+                million.
+            </p>
+            <h3>For more info on BiLock FG Keys</h3>
+            <p>Visit <a href="https://www.lockwiki.com/index.php/BiLock_FG" target="_blank" rel="noopener noreferrer">LockWiki</a>.</p>
+        </div>
+    </div>
 	<script src="vendor/stl_viewer.min.js"></script>
 	<script src="script.js"></script>
     <script>
@@ -72,6 +105,41 @@
         if (!generator.validateProfiles(inputField.value.trim().split(' '))) {
             submitButton.disabled = true
         }
+
+        const helpButton = document.getElementById('help-button')
+        const helpModal = document.getElementById('help-modal')
+        const helpClose = document.getElementById('help-modal-close')
+        let lastFocus = null
+
+        const openHelp = function () {
+            lastFocus = document.activeElement
+            helpModal.classList.remove('hidden')
+            document.body.style.overflow = 'hidden'
+            helpClose.focus()
+        }
+
+        const closeHelp = function () {
+            helpModal.classList.add('hidden')
+            document.body.style.overflow = ''
+            if (lastFocus && typeof lastFocus.focus === 'function') {
+                lastFocus.focus()
+            }
+        }
+
+        helpButton.addEventListener('click', openHelp)
+        helpClose.addEventListener('click', closeHelp)
+
+        helpModal.addEventListener('click', function (event) {
+            if (event.target.dataset.helpClose === 'true') {
+                closeHelp()
+            }
+        })
+
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Escape' && !helpModal.classList.contains('hidden')) {
+                closeHelp()
+            }
+        })
     </script>
 </body>
 </html>
