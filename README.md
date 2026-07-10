@@ -4,6 +4,8 @@
 
 ## Dependencies
 
+Python 3.14+
+
 You need to install: `uv`
 
 ## Generate profiles
@@ -71,4 +73,8 @@ See [`holder.stl`](holder/holder.stl).
 
 # Thank you
 
-https://github.com/omrips/viewstl
+[viewstl (GitHub)](https://github.com/omrips/viewstl)
+
+[BiLock FG (LockWiki)](https://www.lockwiki.com/index.php/BiLock_FG)
+
+[Beating the BiLock (Lockpicking Forensics)](https://www.lockpickingforensics.com/articles/bilock.pdf)
