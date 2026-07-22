@@ -71,6 +71,8 @@ See [`holder.stl`](holder/holder.stl).
 
 [4096.rip](https://4096.rip)
 
+That's created out of the [`www`](www/) directory.
+
 # Thank you
 
 [viewstl (GitHub)](https://github.com/omrips/viewstl)
