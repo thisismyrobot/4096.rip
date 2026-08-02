@@ -80,3 +80,5 @@ That's created out of the [`www`](www/) directory.
 [BiLock FG (LockWiki)](https://www.lockwiki.com/index.php/BiLock_FG)
 
 [Beating the BiLock (Lockpicking Forensics)](https://www.lockpickingforensics.com/articles/bilock.pdf)
+
+[Lockpickers United Discord](https://lockpickersunited.org/)
