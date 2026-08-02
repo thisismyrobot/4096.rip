@@ -1,6 +1,6 @@
 bladeWidth = 4.2;
 
-slotWidth = 1.1;
+slotWidth = 1.05;
 slotLength = 11;
 slotDepth = 10;
 slotLift = 0.5;
