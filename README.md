@@ -20,7 +20,7 @@ There's a lot of optional configuration, use `-h` to see it:
 
 ```bash
 usage: generate.py [-h] [--blade_height BLADE_HEIGHT] [--tip_angle TIP_ANGLE] [--blade_thickness BLADE_THICKNESS]
-                   [--blade_length BLADE_LENGTH] [--blade_lift BLADE_LIFT] [--pin_6_inset PIN_6_INSET]
+                   [--blade_length BLADE_LENGTH] [--blade_lift BLADE_LIFT] [--pin_1_inset PIN_1_INSET]
                    [--pin_spacing PIN_SPACING] [--depth_1 DEPTH_1] [--depth_step DEPTH_STEP] [--v_angle V_ANGLE]
                    [--bow_height BOW_HEIGHT] [--bow_depth BOW_DEPTH]
                    code [destination]
@@ -43,8 +43,8 @@ options:
                         Length of the blade.
   --blade_lift BLADE_LIFT
                         Lift of the bottom of the blade to fit the blade under-curve.
-  --pin_6_inset PIN_6_INSET
-                        Position of the last pin from tip.
+  --pin_1_inset PIN_1_INSET
+                        Position of the first pin from shoulder.
   --pin_spacing PIN_SPACING
                         Space between pins.
   --depth_1 DEPTH_1     Depth of a 1 cut.

@@ -19,7 +19,7 @@ class KeyProfile:
         'blade_length': 29.5,
         'blade_lift': 0.5,
         'tip_angle': 42.5,
-        'pin_6_inset': 5.0,
+        'pin_1_inset': 5.5,
         'pin_spacing': 19/5.0,
         'depth_1': 0.5,
         'depth_step': 1.0,
@@ -80,7 +80,7 @@ class KeyProfile:
     def _cut(self):
         c = self._config
         key_polygon = self._blank_polygon()
-        for (i, depth) in enumerate(reversed(self.code)):
+        for (i, depth) in enumerate(self.code):
             depth = int(depth)
             cutting_blade_polygon = shapely.geometry.Polygon([
                 # Cutting tip
@@ -90,7 +90,7 @@ class KeyProfile:
             ])
             cutting_blade_polygon = shapely.affinity.translate(
                 cutting_blade_polygon,
-                xoff=c['pin_6_inset'] + c['pin_spacing'] * i,
+                xoff=(c['blade_length'] - c['pin_1_inset']) - c['pin_spacing'] * i,
                 yoff=c['blade_height'] - (c['depth_1'] + c['depth_step'] * (depth - 1))
             )
             key_polygon = key_polygon.difference(cutting_blade_polygon)
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument('--blade_thickness', type=float, help='Thickness of the blade.')
     parser.add_argument('--blade_length', type=float, help='Length of the blade.')
     parser.add_argument('--blade_lift', type=float, help='Lift of the bottom of the blade to fit the blade under-curve.')
-    parser.add_argument('--pin_6_inset', type=float, help='Position of the last pin from tip.')
+    parser.add_argument('--pin_1_inset', type=float, help='Position of the first pin from shoulder.')
     parser.add_argument('--pin_spacing', type=float, help='Space between pins.')
     parser.add_argument('--depth_1', type=float, help='Depth of a 1 cut.')
     parser.add_argument('--depth_step', type=float, help='Step between pin depths.')
