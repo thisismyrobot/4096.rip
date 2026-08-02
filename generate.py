@@ -19,7 +19,7 @@ class KeyProfile:
         'blade_length': 29.5,
         'blade_lift': 0.5,
         'tip_angle': 42.5,
-        'pin_1_inset': 5.0,
+        'pin_1_inset': 5.5,
         'pin_spacing': 19/5.0,
         'depth_1': 0.5,
         'depth_step': 1.0,
@@ -90,7 +90,7 @@ class KeyProfile:
             ])
             cutting_blade_polygon = shapely.affinity.translate(
                 cutting_blade_polygon,
-                xoff=c['pin_1_inset'] + c['pin_spacing'] * i,
+                xoff=(c['blade_length'] - c['pin_1_inset']) - c['pin_spacing'] * i,
                 yoff=c['blade_height'] - (c['depth_1'] + c['depth_step'] * (depth - 1))
             )
             key_polygon = key_polygon.difference(cutting_blade_polygon)
@@ -113,7 +113,7 @@ def main(key_profile, destination):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description='Generate BiLock profiles.')
-    parser.add_argument('code', type=str, help='The code for the BiLock profile, tip-to-shoulder.')
+    parser.add_argument('code', type=str, help='The code for the BiLock profile, shoulder-to-tip.')
     parser.add_argument('destination', type=str, nargs='?', default=DEFAULT_EXPORT_TO, help='Destination path for the generated file.')
 
     # These are good defaults based on measuring a real BiLock key, but they might change a little as I test more.
@@ -122,7 +122,7 @@ if __name__ == "__main__":
     parser.add_argument('--blade_thickness', type=float, help='Thickness of the blade.')
     parser.add_argument('--blade_length', type=float, help='Length of the blade.')
     parser.add_argument('--blade_lift', type=float, help='Lift of the bottom of the blade to fit the blade under-curve.')
-    parser.add_argument('--pin_1_inset', type=float, help='Position of the first pin from tip.')
+    parser.add_argument('--pin_1_inset', type=float, help='Position of the first pin from shoulder.')
     parser.add_argument('--pin_spacing', type=float, help='Space between pins.')
     parser.add_argument('--depth_1', type=float, help='Depth of a 1 cut.')
     parser.add_argument('--depth_step', type=float, help='Step between pin depths.')

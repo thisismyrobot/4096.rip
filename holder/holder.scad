@@ -1,8 +1,8 @@
 bladeWidth = 4.2;
 
-slotWidth = 1.1;
+slotWidth = 1.05;
 slotLength = 11;
-slotDepth = 10;
+slotDepth = 9.2;
 slotLift = 0.5;
 
 turnerWidth = bladeWidth - slotWidth * 2;
@@ -11,6 +11,7 @@ turnerDepth = 4;
 
 bowLength = 15;
 bowPad = 3;
+bowCover = 0.8;
 
 module slot() {
     translate([turnerWidth/2, slotLift, -slotDepth]) cube([slotWidth, slotLength, slotDepth + 1]);
@@ -23,6 +24,7 @@ module slots() {
 
 module turner() {
     translate([-turnerWidth/2, 0, 0]) cube([turnerWidth, turnerHeight, turnerDepth]);
+    translate([-turnerWidth/2, slotLift, 0]) cube([turnerWidth, slotLength, bowCover]);
 }
 
 module bow() {

@@ -28,7 +28,7 @@ usage: generate.py [-h] [--blade_height BLADE_HEIGHT] [--tip_angle TIP_ANGLE] [-
 Generate BiLock profiles.
 
 positional arguments:
-  code                  The code for the BiLock profile, tip-to-shoulder.
+  code                  The code for the BiLock profile, shoulder-to-tip.
   destination           Destination path for the generated file.
 
 options:
@@ -44,7 +44,7 @@ options:
   --blade_lift BLADE_LIFT
                         Lift of the bottom of the blade to fit the blade under-curve.
   --pin_1_inset PIN_1_INSET
-                        Position of the first pin from tip.
+                        Position of the first pin from shoulder.
   --pin_spacing PIN_SPACING
                         Space between pins.
   --depth_1 DEPTH_1     Depth of a 1 cut.
@@ -80,3 +80,5 @@ That's created out of the [`www`](www/) directory.
 [BiLock FG (LockWiki)](https://www.lockwiki.com/index.php/BiLock_FG)
 
 [Beating the BiLock (Lockpicking Forensics)](https://www.lockpickingforensics.com/articles/bilock.pdf)
+
+[Lockpickers United Discord](https://lockpickersunited.org/)
