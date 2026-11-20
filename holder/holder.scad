@@ -24,6 +24,7 @@ module slots() {
 
 module turner() {
     translate([-turnerWidth/2, 0, 0]) cube([turnerWidth, turnerHeight, turnerDepth]);
+    translate([-turnerWidth/2, 1.6, 0]) rotate([45, 0, 0]) cube([turnerWidth, turnerHeight, 2]);
     translate([-turnerWidth/2, slotLift, 0]) cube([turnerWidth, slotLength, bowCover]);
 }
 
