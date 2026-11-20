@@ -13,6 +13,12 @@ bowLength = 15;
 bowPad = 3;
 bowCover = 0.8;
 
+stubLength = 1.5;
+stubWidth = 1.75;
+stubHeight = 1;
+stubCentreLine = 3.5; // Above bottom of turner stub
+stubSlotHeight = 1.28;
+
 module slot() {
     translate([turnerWidth/2, slotLift, -slotDepth]) cube([slotWidth, slotLength, slotDepth + 1]);
 }
@@ -35,8 +41,19 @@ module bow() {
     }
 }
 
+module stubs() {
+    // Lower
+    translate([slotWidth+turnerWidth/2, stubCentreLine - (stubSlotHeight + stubHeight)/2, 0]) cube([stubWidth, stubHeight, stubLength]);
+    translate([-slotWidth-turnerWidth/2-stubWidth, stubCentreLine - (stubSlotHeight + stubHeight)/2, 0]) cube([stubWidth, stubHeight, stubLength]);
+
+    // Upper.
+    translate([slotWidth+turnerWidth/2, stubCentreLine + (stubSlotHeight - stubHeight)/2, 0]) cube([stubWidth, stubHeight, stubLength]);
+    translate([-slotWidth-turnerWidth/2-stubWidth, stubCentreLine + (stubSlotHeight - stubHeight)/2, 0]) cube([stubWidth, stubHeight, stubLength]);
+}
+
 difference() {
     bow();
     slots();
 }
 turner();
+stubs();
