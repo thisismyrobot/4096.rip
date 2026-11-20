@@ -1,4 +1,4 @@
-# BiLock FG key profile generator
+# BiLock First Generation (FG) and Executive key profile generator
 
 ![](example.jpg)
 
